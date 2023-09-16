@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 2</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="nomeFuncionario">Nome do funcionario: </label>
+            <input id="idNomeFuncionario" name="nmNomeFuncionario" /><br>
+
+            <label for="salario">Salario: </label>
+            <input type="number" id="idSalario" name="nmSalario" /><br>
+            
+            <input type="button" onclick="getDados()" value="Enviar"><br>
+
+            <output id="idSaida"></output>
+            
+        </form>
+    </main>
+
+    <script>
+        function getDados() {
+
+            let nomeFuncionario = document.getElementById("idNomeFuncionario").value;
+            let salario = document.getElementById("idSalario").value;
+
+            let msg = "O funcionário" + " " + nomeFuncionario + " tem um salário de " + "R$ " + salario + ", em Junho."
+            
+            document.getElementById("idSaida").value = msg;
+
+        }
+    </script>
+</body>
+
+</html>

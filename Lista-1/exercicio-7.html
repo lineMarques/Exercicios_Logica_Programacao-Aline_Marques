@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="distancia">Digite uma distância em metros: </label>
+            <input type="number" id="idDistancia" name="nmDistancia" /><br>
+
+            <input type="button" onclick="getDistancia()" value="Enviar"><br>
+
+            <output id="idValorDistancia"></output><br>
+            <output id="idKm"></output><br>
+            <output id="idHm"></output><br>
+            <output id="idDan"></output><br>
+            <output id="idDm"></output><br>
+            <output id="idCm"></output><br>
+            <output id="idMM"></output><br>
+        </form>
+    </main>
+    <script>
+        function getDistancia() {
+
+            let distancia = Number(document.getElementById("idDistancia").value);
+
+            document.getElementById("idValorDistancia").value = "A distância de " + distancia + "m" + " corresponde a: ";
+            document.getElementById("idKm").value = (distancia/1000) + "km";
+            document.getElementById("idHm").value = (distancia/100) + "hm";
+            document.getElementById("idDan").value = (distancia/10) + "dan";
+            document.getElementById("idDm").value = (distancia*10) + "dm";
+            document.getElementById("idCm").value = (distancia*100) + "cm";
+            document.getElementById("idMM").value = (distancia*1000) + "mm";
+        }
+    </script>
+</body>
+
+</html>

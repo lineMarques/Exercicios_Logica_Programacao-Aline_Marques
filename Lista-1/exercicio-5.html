@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercico 5</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="valor">Digite uma valor: </label>
+            <input type="number" id="idValor" name="nmValor" /><br>
+
+            <input type="button" onclick="getValor()" value="Enviar"><br>
+
+            <output id="idAntecessor"></output><br>
+            <output id="idSucessor"></output>
+        </form>
+    </main>
+    <script>
+        function getValor() {
+
+            let valor = Number(document.getElementById("idValor").value);
+            let antecessor = valor;
+            let sucessor = valor;
+
+            document.getElementById("idAntecessor").value = " O antecessor de " + antecessor + " é: " + (valor - 1);
+            console.log(antecessor, sucessor)
+            document.getElementById("idSucessor").value = "O sucessor de " + sucessor + " é: " + (valor + 1);
+
+        }
+    </script>
+</body>
+
+</html>

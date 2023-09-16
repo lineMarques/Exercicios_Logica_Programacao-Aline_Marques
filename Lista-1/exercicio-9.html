@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        <label for="preco">Digite a altura da parede: </label>
+        <input type="number" id="idPreco" name="nmPreco" /><br>
+
+        <label for="largura">Digite a largura da parede: </label>
+        <input type="number" id="idLargura" name="nmLargura" /><br>
+
+        <input type="button" onclick="getValores()" value="Enviar"><br>
+
+        <output id="idQtdTinta"></output>
+    </form>
+
+    <script>
+        function getValores() {
+
+            let altura = Number(document.getElementById("idPreco").value);
+            let largura = Number(document.getElementById("idLargura").value);
+            let tinta = 2;
+            let metroQuadrado = altura * largura;
+            let qtnTinta = metroQuadrado / 2;
+
+            document.getElementById("idQtdTinta").value = "São necessarios " + qtnTinta + " Litros de tinta para a pintura de "+ metroQuadrado + " m².";
+
+        }
+    </script>
+</body>
+
+</html>
