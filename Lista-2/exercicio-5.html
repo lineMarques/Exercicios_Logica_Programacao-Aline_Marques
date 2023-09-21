@@ -17,28 +17,28 @@
             <label for="valor1">Digite valor 3: </label>
             <input type="number" id="idValor3">
             <input type="button" value="Enviar" onclick="getValue()"><br>
-
-            <output id="idResultado"></output>
         </form>
 
-        <script>
-
-            function getValue() {
-
-                let valor1 = Array(
-
-                    Number(document.getElementById("idValor1").value),
-                    Number(document.getElementById("idValor2").value),
-                    Number(document.getElementById("idValor3").value),
-
-                );
-
-                document.getElementById("idResultado").value = valor1.sort();
-
-            }
-
-        </script>
+        <output id="idResultado"></output>
     </main>
+    <script>
+
+        function getValue() {
+
+            let valor1 = Array(
+
+                Number(document.getElementById("idValor1").value),
+                Number(document.getElementById("idValor2").value),
+                Number(document.getElementById("idValor3").value),
+
+            );
+
+            document.getElementById("idResultado").value = valor1.sort();
+
+        }
+
+    </script>
+
 </body>
 
 </html>

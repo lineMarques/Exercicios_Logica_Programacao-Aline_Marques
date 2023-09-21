@@ -15,32 +15,31 @@
             <label for="valor2">Digite um valor: </label>
             <input type="number" id="idValor2">
             <input type="button" value="Enviar" onclick="valorMaior()"><br>
-
-            <output id="idResultado"></output>
         </form>
-z
-        <script>
-            function valorMaior() {
 
-                let valor1 = Number(document.getElementById("idValor1").value);
-                let valor2 = Number(document.getElementById("idValor2").value);
+        <output id="idResultado"></output>
+    </main>
+    <script>
+        function valorMaior() {
 
-                if (valor1 > valor2) {
-                    document.getElementById("idResultado").value = valor1 + " é maior que: " + valor2;
-                }
-                else if (valor2 > valor1){
-                    document.getElementById("idResultado").value = valor2 + " é maior que: " + valor1;
-                }
+            let valor1 = Number(document.getElementById("idValor1").value);
+            let valor2 = Number(document.getElementById("idValor2").value);
 
-                else {
-                    document.getElementById("idResultado").value = "Digite Valores diferentes";
+            if (valor1 > valor2) {
+                document.getElementById("idResultado").value = valor1 + " é maior que: " + valor2;
+            }
+            else if (valor2 > valor1) {
+                document.getElementById("idResultado").value = valor2 + " é maior que: " + valor1;
+            }
 
-                }
+            else {
+                document.getElementById("idResultado").value = "Digite Valores diferentes";
 
             }
 
-        </script>
-    </main>
+        }
+    </script>
+
 </body>
 
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="valorCompra">Digite o valor de compra do produto: </label>
+            <input type="number" id="idValorCompra" step="0.01">
+            <input type="button" value="Calcular taxa de lucro" onclick="taxaLucro()">
+        </form>
+
+        <output id="idSaida"></output>
+
+    </main>
+    <script>
+
+        function taxaLucro() {
+
+            let valorCompra = Number(document.getElementById('idValorCompra').value);
+
+            console.log(valorCompra)
+
+            if (valorCompra < 20) {
+                console.log('entrou')
+
+                let taxa = (50 / 100) * valorCompra;
+
+                document.getElementById('idSaida').value = "Taxa de lucro de 50%, valor de venda é: " + (valorCompra + taxa).toFixed(2);
+            }
+
+            else {
+                let taxa = (35 / 100) * valorCompra;
+                document.getElementById('idSaida').value = "Taxa de lucro de 35%, valor de venda é: " + (valorCompra + taxa).toFixed(2);
+            }
+
+        }
+    </script>
+</body>
+
+</html>
