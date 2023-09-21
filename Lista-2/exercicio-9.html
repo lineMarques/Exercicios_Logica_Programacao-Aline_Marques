@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <main>
+        <form action="" method="post">
+
+            <select>
+                <option value="">Escolha a forma geometrica</option>
+                <option id="idCirculo" value="circulo">Circulo</option>
+                <option id="idRetangulo" value="retangulo">Retangulo</option>
+                <option id="idTriRetangulo" value="triRetangulo">Triângulo Retangulo</option>
+                <option id="idTriEquilatero" value="triEquilatero">Triângulo Equilátero</option>
+            </select>
+            <input type="button" value="Ok" onclick="calcularArea()">
+        </form>
+
+        <output id="idSaida"></output>
+
+        <section id="idDivCirculo" hidden>
+            <label for="raio">Digite o raio: </label>
+            <input type="number" id="idRaio" step="0.01">
+            <input type="button" value="Calcular Area" onclick="areaCirculo()"><br>
+        </section>
+
+        <section id="idDivRetangulo" hidden>
+            <label for="base">Digite o base: </label>
+            <input type="number" id="idBase" step="0.01">
+            <label for="altura">Digite o base: </label>
+            <input type="number" id="idAltura" step="0.01">
+            <input type="button" value="Calcular Area" onclick="areaRetangulo()"><br>
+        </section>
+
+        <section id="idDivTriRetangulo" hidden>
+            <label for="catetoA">Digite o cateto A: </label>
+            <input type="number" id="idCatetoA" step="0.01">
+            <label for="catetoB">Digite o cateto B: </label>
+            <input type="number" id="idCatetoB" step="0.01">
+            <input type="button" value="Calcular Area" onclick="areaTriRetangulo()"><br>
+        </section>
+
+        <section id="idDivTriEquilatero" hidden>
+            <label for="lado">Digite o valor de l (lado): </label>
+            <input type="number" id="idLado" step="0.01">
+            <input type="button" value="Calcular Area" onclick="areaTriEquilatero()"><br>
+        </section>
+    </main>
+
+    <script>
+
+        function calcularArea() {
+
+            let circulo = document.getElementById("idCirculo").selected;
+            let retangulo = document.getElementById("idRetangulo").selected;
+            let triRetangulo = document.getElementById("idTriRetangulo").selected;
+            let triEquilatero = document.getElementById("idCirculo").selected;
+
+            if (circulo == true) {
+                let divCirculo = document.querySelector("#idDivCirculo");
+                divCirculo.hidden = false;
+            }
+
+            else if (retangulo == true) {
+                let divRetangulo = document.querySelector("#idDivRetangulo");
+                divRetangulo.hidden = false;
+            }
+
+            else if (triRetangulo == true) {
+                let divTriRetangulo = document.querySelector("#idDivTriRetangulo");
+                divTriRetangulo.hidden = false;
+            }
+            else {
+                let divTriEquilatero = document.querySelector("#idDivTriEquilatero");
+                divTriEquilatero.hidden = false;
+            }
+
+        }
+
+        function areaCirculo() {
+            let raio = document.getElementById('idRaio').value
+
+            let area = 3.14 * (raio * raio)
+            let saida = document.getElementById('idSaida').value = "Area do circulo é: " + area;
+        }
+
+        function areaRetangulo() {
+            let base = document.getElementById('idBase').value
+            let altura = document.getElementById('idAltura').value
+
+            let area = base * altura
+            let saida = document.getElementById('idSaida').value = "Area do retangulo é: " + area;
+        }
+
+        function areaTriRetangulo() {
+            let catetoA = document.getElementById('idCatetoA').value
+            let catetoB = document.getElementById('idCatetoB').value
+
+            let area = (catetoA * catetoB) / 2
+            let saida = document.getElementById('idSaida').value = "Area do triângulo retângulo     é: " + area;
+        }
+
+        function areaTriEquilatero() {
+            let lado = document.getElementById('idLado').value
+            let area = (Math.pow(lado, 2) * Math.sqrt(3)) / 4
+            let saida = document.getElementById('idSaida').value = "Area do triangulo equilatero é: " + area.toFixed(4);
+        }
+
+    </script>
+</body>
+
+
+</html>
