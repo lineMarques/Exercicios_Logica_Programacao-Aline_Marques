@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="numero">Digite um numero inteiro: </label>
+            <input type="number" name="nmNumero" id="idNumero">
+            <input type="button" value="Enviar" onclick="getVelocidade()">
+        </form>
+
+        <output id="idSaida"></output>
+    </main>
+
+    <script>
+        function getVelocidade() {
+
+            let numero = Number(document.getElementById('idNumero').value);
+
+            if (Number.isInteger(numero) == false) {
+                document.getElementById('idSaida').innerText = "Digite um valor Inteiro";
+            } else {
+
+                numero = numero % 2;
+
+                if (numero == 0) {
+                    document.getElementById('idSaida').innerText = "Numero par";
+                } else {
+                    document.getElementById('idSaida').innerText = "Numero impar";
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

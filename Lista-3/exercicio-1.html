@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="velocidade">Qual a velocidade do carro?</label>
+            <input type="text" name="nmVelocidade" id="idVelocidade">
+            <input type="button" value="Enviar" onclick="getVelocidade()">
+        </form>
+
+        <output id="idSaida"></output>
+    </main>
+
+    <script>
+        
+        function getVelocidade(){
+            
+            let velocidade = document.getElementById('idVelocidade').value;
+
+            if(velocidade > 80){
+
+                let multa = (velocidade - 80) * 5;
+
+                document.getElementById('idSaida').innerText = "Voce foi multado, o valor da multa é: R$" +multa.toFixed(2);
+            }
+            else{
+                document.getElementById('idSaida').innerText = "Velocidade dentro do permitido"
+            }
+        }
+    </script>
+</body>
+
+
+</html>

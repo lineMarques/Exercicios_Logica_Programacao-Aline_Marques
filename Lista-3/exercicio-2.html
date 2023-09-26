@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="anoNascimento">Qual o ano de nascimento?</label>
+            <input type="number" name="nmAnoNascimento" id="idAnoNascimento">
+            <input type="button" value="Enviar" onclick="getIdade()">
+        </form>
+
+        <output id="idSaida"></output>
+    </main>
+
+    <script>
+        function getIdade() {
+
+            let anoAtual = 2023;
+            let anoNascimento = document.getElementById('idAnoNascimento').value
+
+            let idade = anoAtual - anoNascimento
+
+            if (idade >= 16) {
+                document.getElementById("idSaida").innerText = "Voce tem " + idade + " de anos e pode votar."
+            } else {
+
+                document.getElementById("idSaida").innerText = " Voce tem menos de 16 anos e não pode votar."
+
+            }
+        }
+    </script>
+</body>
+
+</html>
