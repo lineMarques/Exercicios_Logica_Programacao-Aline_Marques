@@ -14,15 +14,17 @@
             <input type="text" id="idUser" name="nmUser">
             <label for="senha">Senha: </label>
             <input type="text" id="idSenha" name="nmSenha">
-            <input type="button" value="Enviar" onclick="autenticar()"><br>
+            <input type="button" value="Enviar" onclick="autenticar(count++)"><br>
         </form>
 
         <output id="idSaida"></output>
 
     </main>
     <script>
-        function autenticar() {
 
+        let count = 0;
+
+        function autenticar(count) {
 
             let usuario1 = 'Aluno1';
             let senhaUser1 = 'Trocar123';
@@ -32,6 +34,7 @@
 
             let user3 = 'Aluno3';
             let senha3 = '132Trocar';
+
 
             let userId = document.getElementById('idUser').value;
             let senhaUser = document.getElementById('idSenha').value;
@@ -50,7 +53,13 @@
                 document.getElementById('idSaida').value = "Senha incorreta"
 
             } else {
+
+                count++
                 document.getElementById('idSaida').value = "Usuário não cadastrado"
+
+                if (count >= 3) {
+                    document.getElementById('idSaida').value = "Bloqueado"
+                }
             }
         }
     </script>
