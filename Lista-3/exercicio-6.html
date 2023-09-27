@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="anoNascimento">Digite o ano: </label>
+            <input type="number" name="nmAnoNascimento" id="idAnoNascimento">
+            <input type="button" value="Enviar" onclick="getAlistamento()">
+        </form>
+
+        <output id="idSaida"></output>
+    </main>
+
+    <script>
+        function getAlistamento() {
+
+            let anoNascimento = Number(document.getElementById('idAnoNascimento').value)
+            let anoAtual = new Date();
+            anoAtual = anoAtual.getFullYear();
+            let idade = anoAtual - anoNascimento
+
+
+            if (idade >= 18) {
+                let alistamento = idade - 18;
+                document.getElementById('idSaida').innerText = "Já se passaram " + alistamento + " anos de alistamento."
+            } else {
+                let alistamento = 18 - idade
+                document.getElementById('idSaida').innerText = "Faltam " + alistamento + " anos para o alistamento."
+            }
+
+        }
+    </script>
+</body>
+
+</html>

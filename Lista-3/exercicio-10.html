@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="peso">Digite o seu peso: </label><br>
+            <input type="number" name="nmPeso" id="idPeso" step="0.01"><br>
+            <label for="altura">Digite a sua altura: </label><br>
+            <input type="number" name="nmAltura" id="idAltura" step="0.01"><br><br>
+            <input type="button" value="Calcular IMC" onclick="cacularIMC()">
+        </form>
+
+        <output id="idSaida"></output>
+    </main>
+
+    <script>
+        function cacularIMC() {
+            let peso = Number(document.getElementById('idPeso').value);
+            let altura = Number(document.getElementById('idAltura').value);
+
+            let IMC = peso / (altura * altura)
+
+            if (IMC <= 18.4) {
+                document.getElementById('idSaida').innerText = "IMC: " + IMC + ". Abaixo do peso.";
+            }
+            else if (IMC >= 18.5 && IMC < 25) {
+                document.getElementById('idSaida').innerText = "IMC: " + IMC + ". Peso ideal.";
+            }
+            else if (IMC >= 25 && IMC < 30) {
+                document.getElementById('idSaida').innerText = "IMC: " + IMC + ". Sobrepeso.";
+            }
+            else if (IMC >= 30 && IMC < 40) {
+                document.getElementById('idSaida').innerText = "IMC: " + IMC + ". Obesidade.";
+            }
+            else{
+                document.getElementById('idSaida').innerText = "IMC: " + IMC + ". Obesidade Mórbida.";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="nome">Nome do cliente: </label>
+            <input type="text" id="idNome" name="nmNome"><br><br>
+
+            <label for="sexo">Feminino</label>
+            <input type="radio" name="nmSexo" id="idFem" value="feminino">
+            <label for="sexo">Masculino</label>
+            <input type="radio" name="nmSexo" id="idMas" value="masculino"><br><br>
+
+            <label for="valorCompra">Digite o valor da compra: </label>
+            <input type="number" id="idValorCompra" name="nmValorCompra" step="0.01">
+
+            <input type="button" value="Calcular Desconto" onclick="getDesconto()">
+        </form>
+
+        <output id="idSaida"></output>
+    </main>
+
+    <script>
+        function getDesconto() {
+
+            let nome = document.getElementById('idNome').value;
+            let sexo = document.querySelector("input[name=nmSexo]:checked").value
+            let valorCompra = Number(document.getElementById('idValorCompra').value)
+
+            if (sexo == "feminino") {
+                document.getElementById('idSaida').innerText = "Mulheres Ganham desconto de 13%, o valor da sua compra é: " + (valorCompra - (valorCompra * 0.13)).toFixed(2);
+            } else{
+                document.getElementById('idSaida').innerText = "Homens Ganham desconto de 5%, o valor da sua compra é: " + (valorCompra - (valorCompra * 0.05)).toFixed(2);
+            }
+
+        }
+    </script>
+</body>
+
+</html>

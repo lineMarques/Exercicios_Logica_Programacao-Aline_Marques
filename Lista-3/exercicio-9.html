@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="reta1">Digite o valor da reta1: </label><br>
+            <input type="number" name="nmReta1" id="idReta1" step="0.01"><br>
+            <label for="reta2">Digite o valor da reta2: </label><br>
+            <input type="number" name="nmReta2" id="idReta2" step="0.01"><br>
+            <label for="reta3">Digite o valor da reta3: </label><br>
+            <input type="number" name="nmReta3" id="idReta3" step="0.01"><br>
+            <input type="button" value="Formar Triangulo" onclick="formarTriangulo()">
+        </form>
+
+        <output id="idSaida"></output>
+    </main>
+
+    <script>
+
+        function formarTriangulo() {
+
+            let reta1 = Number(document.getElementById('idReta1').value);
+            let reta2 = Number(document.getElementById('idReta2').value);
+            let reta3 = Number(document.getElementById('idReta3').value);
+
+            console.log(reta1, reta2, reta3)
+
+            if (reta1 >= (reta2 + reta3)) {
+                document.getElementById('idSaida').innerText = "A reta1 tem que ser menor que soma da reta2 e reta3"
+
+            } else if (reta2 >= (reta1 + reta3)) {
+                document.getElementById('idSaida').innerText = "A reta2 tem que ser menor que soma da reta1 e reta3"
+
+            } else if (reta3 >= (reta1 + reta2)) {
+                document.getElementById('idSaida').innerText = "A reta3 tem que ser menor que soma da reta2 e reta1"
+
+            } else {
+                document.getElementById('idSaida').innerText = "Triangulo Formado"
+            }
+
+        }
+    </script>
+</body>
+
+</html>

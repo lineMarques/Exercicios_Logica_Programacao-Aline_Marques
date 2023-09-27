@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="distacia">Qual a distancia em km que pretende percorrer? </label>
+            <input type="text" name="nmDistacia" id="idDistacia">
+            <input type="button" value="Calcular valor da viagem" onclick="getDistacia()">
+        </form>
+
+        <output id="idSaida"></output>
+    </main>
+
+    <script>
+
+        function getDistacia() {
+
+            let distacia = Number(document.getElementById('idDistacia').value);
+
+
+            if (distacia <= 200) {
+
+                let valorPassagem = distacia * 0.50;
+
+                document.getElementById('idSaida').innerText = "O km custa R$0,50, o valor da viagem é R$ " + valorPassagem.toFixed(2);
+            }
+            else {
+
+                let valorPassagem = distacia * 0.45;
+                document.getElementById('idSaida').innerText = "O km custa R$0,45, o valor da viagem é R$ " + valorPassagem.toFixed(2);
+            }
+        }
+    </script>
+</body>
+
+
+</html>
