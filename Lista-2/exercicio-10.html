@@ -14,7 +14,7 @@
             <input type="text" id="idUser" name="nmUser">
             <label for="senha">Senha: </label>
             <input type="text" id="idSenha" name="nmSenha">
-            <input type="button" value="Enviar" onclick="autenticar(count++)"><br>
+            <input type="button" value="Enviar" onclick="autenticar()"><br>
         </form>
 
         <output id="idSaida"></output>
@@ -24,7 +24,9 @@
 
         let count = 0;
 
-        function autenticar(count) {
+        function autenticar() {
+
+            count++
 
             let usuario1 = 'Aluno1';
             let senhaUser1 = 'Trocar123';
@@ -54,9 +56,9 @@
 
             } else {
 
-                count++
+                
                 document.getElementById('idSaida').value = "Usuário não cadastrado"
-
+                console.log(count);
                 if (count >= 3) {
                     document.getElementById('idSaida').value = "Bloqueado"
                 }
