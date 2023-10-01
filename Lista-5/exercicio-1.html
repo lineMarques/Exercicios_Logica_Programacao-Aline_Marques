@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 1</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <output id="idSaida"></output>
+        </form>
+    </main>
+
+    <script>
+
+        output = ' ';
+        for (let i = 1; i <= 100; i++) {
+            if( (i%3 ==0 )||(i%5 == 0) ) {               
+               output += i + " ";
+            }
+        }
+
+        console.log(output);
+        document.getElementById('idSaida').innerText = "multiplos de 3 e 5: " +output;
+    </script>
+</body>
+
+</html>

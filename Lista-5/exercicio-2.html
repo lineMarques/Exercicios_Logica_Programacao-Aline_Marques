@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="valorInicial">Digite valor inicial: </label>
+            <input type="number" name="nmInicial" id="idInicial">
+            <label for="valorFinal">Digite valor final: </label>
+            <input type="number" name="nmFinal" id="idFinal">
+            <input type="button" value="Iniciar Contagem Primos" onclick="getValue()">
+        </form>
+        <output id="idSaida"></output>
+    </main>
+
+    <script>
+
+        function getValue() {
+
+            let output = ' ';
+            let valorInicial = Number(document.getElementById('idInicial').value);
+            let valorFinal = Number(document.getElementById('idFinal').value);
+            let divisores = 0;
+
+            for (let i = valorInicial; i <= valorFinal; i++) {
+                divisores = 0;
+
+                /* for para incrementar a variavel divisores de i com resto zero*/
+                for (divisor = 2; divisor <= i; divisor++) {
+                    if (i % divisor == 0) {
+                        divisores++;
+                    }
+                }
+
+                /* if que compara quantos divisores i teve, se for apenas ele mesmo. O numero vai ser primo*/
+                if (divisores == 1) {
+                    console.log(divisores, i)
+                    output += i + " ";
+                }
+            }
+
+            document.getElementById('idSaida').innerText = output;
+
+        }
+
+    </script>
+</body>
+
+</html>
