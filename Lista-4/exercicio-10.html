@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="valor1">Digite primeiro valor: </label><br>
+            <input type="number" name="nmValor1" id="idValor1"><br>
+            <label for="valor2">Digite segundo valor: </label><br>
+            <input type="number" name="nmValor2" id="idValor2"><br>
+            <label for="ParImpar">Escolha: </label><br>
+            <select name="nmParImpar" id="idParImpar">
+                <option value="par">Par</option>
+                <option value="impar">impar</option>
+            </select><br><br>
+            <input type="button" value="Enviar" onclick="getValue()"><br><br>
+        </form>
+        <output id="idSaida"></output>
+    </main>
+
+    <script>
+        function getValue() {
+
+            let valor1 = Number(document.getElementById("idValor1").value);
+            let valor2 = Number(document.getElementById("idValor2").value);
+            let parImpar = document.querySelector("#idParImpar").value;
+
+            let output = " ";
+
+            /* Condição de entrada é a para escolha do select */
+            if (parImpar == 'par') {
+
+                /* Verificar se o valor1 é maior que o valor2, como no exercicio 09 */
+                if (valor1 < valor2) {
+
+                    /* Verifica se valor de entrada é par, se for verdadeiro entra no while*/
+                    if ((valor1 % 2) == 0 || (valor1 % 2) == -0) {
+
+                        while (valor1 < valor2) {
+                            output += valor1 + " ";
+                            valor1 += 2;
+                        }
+
+                        /* Se o valor de entrada for impar, incremeta +1 na variavel para continuar a contagem*/
+                    } else {
+
+                        valor1 += 1;
+                        while (valor1 < valor2) {
+                            output += valor1 + " ";
+                            valor1 += 2;
+                        }
+
+                    }
+
+                    /* Verificar se o valor1 é menor que o valor2, como no exercicio 09 */
+                } else if (valor1 > valor2) {
+
+                    if ((valor1 % 2) == 0 || (valor1 % 2) == -0) {
+
+                        while (valor1 > valor2) {
+                            output += valor1 + " ";
+                            valor1 -= 2;
+                        }
+
+                    } else {
+                        valor1 -= 1;
+                        while (valor1 > valor2) {
+                            output += valor1 + " ";
+                            valor1 -= 2;
+                        }
+
+                    }
+
+                    /* Se os valores forem iguais vai para o else */
+                } else {
+                    output = "Digite valores diferentes" + ('\n\n')
+                }
+
+            } else {
+
+                if (valor1 < valor2) {
+
+                    if ((valor1 % 2) == 0 || (valor1 % 2) == -0) {
+
+                        valor1 += 1;
+                        while (valor1 < valor2) {
+                            output += valor1 + " ";
+                            valor1 += 2;
+                        }
+
+                    } else {
+
+                        while (valor1 < valor2) {
+                            output += valor1 + " ";
+                            valor1 += 2;
+                        }
+
+                    }
+
+                } else if (valor1 > valor2) {
+
+                    if ((valor1 % 2) == 0 || (valor1 % 2) == -0) {
+
+                        valor1 -= 1;
+                        while (valor1 > valor2) {
+                            output += valor1 + " ";
+                            valor1 -= 2;
+                        }
+
+                    } else {
+
+                        while (valor1 > valor2) {
+                            output += valor1 + " ";
+                            valor1 -= 2;
+                        }
+
+                    }
+
+                } else {
+                    output = "Digite valores diferentes" + ('\n\n')
+                }
+            }
+
+            output += "Acabou";
+            console.log(output);
+            document.getElementById("idSaida").innerText = output;
+
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="valor">Digite um numero inteiro positivo: </label>
+            <input type="number" name="nmValor" id="idValor" min="0" step="0">
+            <input type="button" value="Enviar" onclick="getValue()"><br><br>
+        </form>
+        <output id="idSaida"></output>
+    </main>
+
+    <script>
+        function getValue() {
+
+            let valor = document.getElementById("idValor").value;
+            let output = " "
+            console.log(valor);
+
+            for(i = 1; i <= valor; i++){
+                output += i + " ";
+            }
+
+            output += "Acabou";
+            console.log(output);
+            document.getElementById("idSaida").innerText = output;
+        }
+    </script>
+</body>
+
+</html>

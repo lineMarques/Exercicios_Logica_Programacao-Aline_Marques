@@ -23,7 +23,7 @@
 
             let ano = Number(document.getElementById('idAno').value);
 
-            if (ano % 4 == 0 || ano % 400 == 0) {
+            if (ano % 4 == 0 && ano % 400 == 0) {
                 document.getElementById('idSaida').innerText = "O ano " + ano + " é bissexto";
             } else {
                 document.getElementById('idSaida').innerText = "O ano " + ano + " não é bissexto";

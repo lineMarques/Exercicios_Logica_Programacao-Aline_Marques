@@ -22,8 +22,8 @@
         function getAlistamento() {
 
             let anoNascimento = Number(document.getElementById('idAnoNascimento').value)
-            let anoAtual = new Date();
-            anoAtual = anoAtual.getFullYear();
+            let anoAtual = new Date().toUTCString();
+            console.log(anoAtual);
             let idade = anoAtual - anoNascimento
 
 

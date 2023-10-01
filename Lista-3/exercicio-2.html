@@ -21,16 +21,15 @@
     <script>
         function getIdade() {
 
-            let anoAtual = 2023;
-            let anoNascimento = document.getElementById('idAnoNascimento').value
-
-            let idade = anoAtual - anoNascimento
+            let anoAtual = new Date().getFullYear();
+            let anoNascimento = document.getElementById('idAnoNascimento').value;
+            let idade = anoAtual - anoNascimento;
 
             if (idade >= 16) {
-                document.getElementById("idSaida").innerText = "Voce tem " + idade + " de anos e pode votar."
+                document.getElementById("idSaida").innerText = "Voce tem " + idade + " de anos e pode votar.";
             } else {
 
-                document.getElementById("idSaida").innerText = " Voce tem menos de 16 anos e não pode votar."
+                document.getElementById("idSaida").innerText = " Voce tem menos de 16 anos e não pode votar.";
 
             }
         }

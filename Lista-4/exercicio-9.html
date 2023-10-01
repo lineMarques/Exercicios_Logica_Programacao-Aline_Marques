@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="valor1">Digite primeiro valor: </label><br>
+            <input type="number" name="nmValor1" id="idValor1"><br>
+            <label for="valor2">Digite segundo valor: </label><br>
+            <input type="number" name="nmValor2" id="idValor2"><br>
+            <label for="incremento">Digite o incremento: </label><br>
+            <input type="number" name="nmIncremento" id="idIncremento" min="1"><br><br>
+            <input type="button" value="Enviar" onclick="getValue()"><br><br>
+        </form>
+        <output id="idSaida"></output>
+    </main>
+
+    <script>
+        function getValue() {
+
+            let valor1 = Number(document.getElementById("idValor1").value);
+            let valor2 = Number(document.getElementById("idValor2").value);
+            let incremento = Number(document.getElementById("idIncremento").value);
+
+            let output = " ";
+
+            if(incremento < 0){
+                incremento *= -1;
+                output = "Incremento  não pode ser negativo" + ('\n\n')
+            }
+
+            if (valor1 > valor2) {
+
+                for (i = valor1; i >= valor2; i -= incremento) {
+                    output += i + " ";
+                }
+
+            } else if (valor1 < valor2) {
+
+                for (i = valor1; i <= valor2; i += incremento) {
+                    output += i + " ";
+                }
+
+            } else {
+
+                output = "Digite valores diferentes "
+            }           
+
+            output += "Acabou";
+            console.log(output);
+            document.getElementById("idSaida").innerText = output;
+
+
+
+        }
+    </script>
+
+</body>
+
+</html>

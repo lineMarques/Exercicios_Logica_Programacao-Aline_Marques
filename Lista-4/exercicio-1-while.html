@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1-while</title>
+</head>
+
+<body>
+    <main>
+        <output id="idSaida"></output>
+    </main>
+    <script>
+
+        let output = ' ';
+        let i = 5;
+
+        while (i <= 12) {
+            output += + i + " ";
+            i++;
+        }
+
+        output += "Acabou ";
+
+        console.log(output);
+        document.getElementById('idSaida').innerText = "while: "+ output;               
+
+    </script>
+</body>
+
+</html>

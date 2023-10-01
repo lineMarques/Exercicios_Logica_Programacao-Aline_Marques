@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4-for</title>
+</head>
+
+<body>
+    <main>
+        <output id="idSaida"></output>
+    </main>
+    <script>
+
+        let output = 'Inicio ';
+        for (i = 100; i >= 0; i -= 5) {
+            output += + i + " ";
+        }
+        output += "Acabou";
+
+        console.log(output);
+        document.getElementById('idSaida').innerText = "for: " + output;
+
+    </script>
+</body>
+
+</html>
