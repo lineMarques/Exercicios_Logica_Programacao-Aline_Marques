@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="produtos">Digite sua idade:</label>
+            <input type="number" name="nmIdade" id="idIdade">
+            <input type="button" value="Verificar idade" onclick="getValue()"><br><br>
+        </form>
+        <output id="idSaidaMedia"></output><br><br>
+        <output id="idSaidaMais18"></output><br><br>
+        <output id="idSaidaMenor5"></output><br><br>
+        <output id="idSaidaMaxIdade"></output><br><br>
+
+    </main>
+    <script>
+
+        let arrayIdade = [];
+
+        function getValue() {
+
+            let idade = Number(document.getElementById('idIdade').value);
+            let maior18 = 0;
+            let menor5 = 0;
+            let soma = 0;
+            var maxIdade = 0;
+
+            arrayIdade.push(idade);
+
+            let i = 0;
+            while (i < arrayIdade.length) {
+
+                if (arrayIdade[i] > 18) {
+                    maior18++;
+                }
+                if (arrayIdade[i] < 5) {
+                    menor5++;
+                }
+                soma += arrayIdade[i]
+
+                let valorAtual = arrayIdade[i];
+                if (valorAtual > maxIdade) {
+                    maxIdade = arrayIdade[0];
+                    maxIdade = valorAtual;
+                }
+
+                i++
+            }
+
+            let media = soma / arrayIdade.length
+
+            console.log(arrayIdade);
+            document.getElementById('idSaidaMais18').innerText = "Maiores de 18 anos: " + maior18;
+            document.getElementById('idSaidaMenor5').innerText = "Menores de 5 anos: " + menor5;
+            document.getElementById('idSaidaMaxIdade').innerText = "Maior Idade: " + maxIdade;
+            document.getElementById('idSaidaMedia').innerText = "Média entre as idades: " + media.toFixed(2);
+        }
+
+    </script>
+</body>
+
+</html>

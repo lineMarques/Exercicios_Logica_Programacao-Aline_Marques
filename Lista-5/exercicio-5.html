@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="produtos">Digite valor do produto:</label>
+            <input type="number" name="nmValor" id="idValor">
+            <input type="button" value="Verificar valores" onclick="getValue(), valueMax(), valueMin()"><br><br>
+
+        </form>
+        <output id="idSaida"></output><br><br>
+        <output id="idSaidaMax"></output><br><br>
+        <output id="idSaidaMin"></output><br><br>
+    </main>
+
+    <script>
+
+        var arrayValores = []
+        let output = " ";
+
+        function getValue() {
+
+
+            let valorInput = Number(document.getElementById('idValor').value);
+
+            arrayValores.push(valorInput);
+
+
+            for (let i = 0; i < arrayValores.length; i++) {
+                output += arrayValores[i] + ' ';
+
+            }
+        }
+
+        function valueMin() {
+
+            let menor = arrayValores[0];
+
+            //Faz o loop para fazer as comparações
+            for (let i = 1; i < arrayValores.length; i++) {
+                if (arrayValores[i] < menor) {
+                    menor = arrayValores[i];
+                }
+            }
+            console.log(menor)
+            document.getElementById('idSaidaMin').innerText = "Menor Valor: " + menor
+
+        }
+
+
+        function valueMax() {
+
+            //Recebe os primeiros elementos do array
+            let maior = arrayValores[0];
+
+            //Faz o loop a  vapartir do segundo elemento para fazer as comparações
+            for (let i = 1; i < arrayValores.length; i++) {
+                let valorAtual = arrayValores[i];
+                if (valorAtual > maior) {
+                    maior = arrayValores[0];
+                    maior = valorAtual;
+                }
+            }
+            console.log(maior)
+            document.getElementById('idSaidaMax').innerText = "Maior Valor: " + maior
+
+        }
+
+
+        valueMax(arrayValores)
+        valueMin(arrayValores)
+
+
+    </script>
+</body>
+
+</html>

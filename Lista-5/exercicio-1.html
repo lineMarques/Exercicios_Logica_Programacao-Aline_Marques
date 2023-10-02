@@ -16,15 +16,15 @@
 
     <script>
 
-        output = ' ';
+        let output = ' ';
         for (let i = 1; i <= 100; i++) {
-            if( (i%3 ==0 )||(i%5 == 0) ) {               
-               output += i + " ";
+            if ((i % 3 == 0) || (i % 5 == 0)) {
+                output += i + " ";
             }
         }
 
         console.log(output);
-        document.getElementById('idSaida').innerText = "multiplos de 3 e 5: " +output;
+        document.getElementById('idSaida').innerText = "multiplos de 3 e 5: " + output;
     </script>
 </body>
 
