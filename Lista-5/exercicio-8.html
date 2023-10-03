@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="valor">Digite os graus celsius: </label>
+            <input type="number" name="nmValor" id="idCelsius" step="0.01">
+            <input type="button" value="Enviar" onclick="getValue()"><br><br>
+        </form>
+        <output id="idSaida"></output><br><br>
+    </main>
+
+    <script>
+        function getValue() {
+
+            let celsius = Number(document.getElementById('idCelsius').value);
+            let fahrenheit = 0;
+
+            fahrenheit = (9 * celsius + 160) / 5;
+
+            if (celsius == 0) {
+                fahrenheit = 0;
+            }
+            document.getElementById('idSaida').innerText = fahrenheit.toFixed(1) + ' fahrenheit';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="valor">Adivinhe um valor de 1 a 10: </label>
+            <input type="number" name="nmValor" id="idValor">
+            <input type="button" value="Enviar" onclick="getValue()"><br><br>
+        </form>
+    </main>
+    <output id="idSaida"></output><br><br>
+
+    <script>
+        let sorteio = parseInt(Math.random() * 11);
+        let contTentativa = 0;
+
+        function getValue() {
+
+            let inputValor = Number(document.getElementById('idValor').value);
+            contTentativa++
+
+            if (contTentativa <= 2) {
+                if (inputValor == sorteio) {
+                    document.getElementById('idSaida').innerText = "Parabéns!!! Vc acertou o numero!";
+
+
+
+                } else if (inputValor != sorteio) {
+
+                    if (inputValor < sorteio) {
+                        document.getElementById('idSaida').innerText = "Errou!!!. O numero: " + inputValor + " é menor que o numero sorteado." + ('\n\n') + "Vc tem " + (3 - contTentativa) + " tentativas";
+                    } else {
+                        document.getElementById('idSaida').innerText = "Errou!!!. O numero: " + inputValor + " é maior que o numero sorteado." + ('\n\n') + "Vc tem " + (3 - contTentativa) + " tentativas";
+                    }
+                }
+            } else {
+                document.getElementById('idValor').disabled = true;
+                document.getElementById('idSaida').innerText = "Perdeu!";
+            }
+
+            console.log(sorteio);
+        }
+
+    </script>
+</body>
+
+</html>

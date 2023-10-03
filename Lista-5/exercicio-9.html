@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        <label for="undMedida">De: </label>
+        <select name="nmUndMedida" id="idUndMedida">
+            <option value="celsius">Celsius</option>
+            <option value="kelvin">Kelvin</option>
+            <option value="fahrenheit">Fahrenheit</option>
+        </select><br>
+
+        <label for="valor">Graus: </label>
+        <input type="number" name="nmGraus" id="idGraus" step="0.01"><br><br>
+        <input type="button" value="Converter" onclick="converterTemperatura()"><br><br>
+    </form>
+    <output id="idSaida"></output><br><br>
+
+    <script>
+
+        function converterTemperatura() {
+            
+            let temperatura = parseFloat(document.getElementById('idGraus').value);
+            let unidadeMedida = document.getElementById('idUndMedida').value;
+            let resultado = "";
+
+            if (unidadeMedida == 'celsius') {
+                let celsiusParaKelvin = temperatura + 273.15;
+                let celsiusParaFahrenheit = ((temperatura * 9) / 5) + 32;
+                resultado += temperatura + '°C é equivalente a ' + celsiusParaFahrenheit.toFixed(2) + '°F e ' + celsiusParaKelvin.toFixed(2) + 'K';
+
+            } else if (unidadeMedida == 'fahrenheit') {
+                let fahrenheitParaCelsius = (temperatura - 32) * 5 / 9;
+                let fahrenheitParaKelvin = (temperatura + 459.67) * 5 / 9;
+                resultado += temperatura + '°C é equivalente a ' + fahrenheitParaCelsius.toFixed(2) + '°C e ' + fahrenheitParaKelvin.toFixed(2) + 'K';
+
+            } else {
+                let kelvinParaCelsius = temperatura - 273.15;
+                let kelvinParaFahrenheit = (temperatura * 9 / 5) - 459.67;
+                resultado += temperatura + '°C é equivalente a ' + kelvinParaCelsius.toFixed(2) + '°C e ' + kelvinParaFahrenheit.toFixed(2) + '°F';
+            }
+
+            document.getElementById('idSaida').innerText = resultado;
+        }
+    </script>
+</body>
+
+</html>

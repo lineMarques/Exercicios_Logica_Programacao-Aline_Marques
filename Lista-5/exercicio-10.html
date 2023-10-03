@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="moedaEntrada">Escolha moeda de entrada: </label>
+            <select name="nmEntrada" id="idEntrada">
+                <option value="real">Real</option>
+                <option value="dolarAmericano">Dólar Americano</option>
+                <option value="euro">Euro</option>
+                <option value="libra">Libra</option>
+                <option value="dolarCanadense"> Dólar Canadense</option>
+            </select><br><br>
+            <label for="valor">Digite o valor: </label>
+            <input type="number" name="nmValor" id="idValor" step="0.01"><br><br>
+
+            <label for="moedaEntrada">Converter para: </label>
+            <select name="nmDestino" id="idDestino">
+                <option value="real">Real</option>
+                <option value="dolarAmericano">Dólar Americano</option>
+                <option value="euro">Euro</option>
+                <option value="libra">Libra</option>
+                <option value="dolarCanadense"> Dólar Canadense</option>
+            </select><br><br>
+            <input type="button" value="Converter" onclick="converter()">
+        </form>
+        <output id="idSaida"></output>
+    </main>
+    <script>
+
+        function converter() {
+
+            let cotacoes = {
+                real: 1.00,
+                dolarAmericano: 0.20,
+                euro: 0.19,
+                libra: 0.16,
+                dolarCanadense: 0.27
+            };
+
+            let moedaEntrada = document.getElementById("idEntrada").value;
+            let moedaDestino = document.getElementById("idDestino").value;
+            let valor = Number(document.getElementById('idValor').value);
+
+            let valorEntrada = valor / cotacoes[moedaEntrada];
+            let valorConvertido = valorEntrada * cotacoes[moedaDestino];
+
+            console.log(valorConvertido)
+            document.getElementById('idSaida').innerText = "Vc converteu " + moedaEntrada + " por " + moedaDestino + '. $' + valorConvertido
+
+        }
+
+    </script>
+</body>
+
+</html>
