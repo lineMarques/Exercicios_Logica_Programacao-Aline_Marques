@@ -10,7 +10,7 @@
 <body>
     <main>
         <label for="chave">Insira a chave ( de 1 a 15 ): </label>
-        <input type="text" name="nmChave" id="idChave">
+        <input type="number" name="nmChave" id="idChave" min="1" max="15">
         <input type="button" value="enviar" onclick="getNumero()"><br><br>
         <output id="idSaida"></output>
         <output id="idRepeticao"></output>
@@ -34,12 +34,20 @@
                 }
 
             }
-            repeticao += '\n' + 'Sua chave se repetiu ' + cont + ' vezes.'
-            
-            console.log(vetor);
-            document.getElementById('idSaida').innerText = output;
+
+            if (chave < 1 || chave > 15) {
+                output += 'Sua chave está do range!'
+                document.getElementById('idSaida').innerText = output;
+
+            } else {
+
+                document.getElementById('idSaida').innerText = output;
+            }
+
+            repeticao += '\n' + 'Sua chave se repetiu ' + cont + ' vezes.';
             document.getElementById('idRepeticao').innerText = repeticao;
 
+            console.log(vetor);
         }
 
     </script>
