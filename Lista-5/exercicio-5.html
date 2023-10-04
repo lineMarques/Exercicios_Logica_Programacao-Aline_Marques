@@ -27,11 +27,9 @@
 
         function getValue() {
 
-
             let valorInput = Number(document.getElementById('idValor').value);
 
             arrayValores.push(valorInput);
-
 
             for (let i = 0; i < arrayValores.length; i++) {
                 output += arrayValores[i] + ' ';
@@ -60,7 +58,7 @@
             //Recebe os primeiros elementos do array
             let maior = arrayValores[0];
 
-            //Faz o loop a  vapartir do segundo elemento para fazer as comparações
+            //Faz o loop a  partir do segundo elemento para fazer as comparações
             for (let i = 1; i < arrayValores.length; i++) {
                 let valorAtual = arrayValores[i];
                 if (valorAtual > maior) {

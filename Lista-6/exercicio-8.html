@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+</head>
+
+<body>
+    <main>
+        <label for="chave">Insira a chave ( de 1 a 15 ): </label>
+        <input type="text" name="nmChave" id="idChave">
+        <input type="button" value="enviar" onclick="getNumero()"><br><br>
+        <output id="idSaida"></output>
+        <output id="idRepeticao"></output>
+    </main>
+
+    <script>
+        let vetor = [];
+
+        function getNumero() {
+            let output = ' ';
+            let repeticao = ' '
+            let chave = Number(document.getElementById('idChave').value);
+            let cont = 0;
+
+            for (let i = 0; i < 30; i++) {
+                vetor[i] = parseInt(Math.random() * 16);
+
+                if (chave == vetor[i]) {
+                    output += '\n' + 'A chave foi encontrada na posição: [' + i + '] .' + '\n';
+                    cont++
+                }
+
+            }
+            repeticao += '\n' + 'Sua chave se repetiu ' + cont + ' vezes.'
+            
+            console.log(vetor);
+            document.getElementById('idSaida').innerText = output;
+            document.getElementById('idRepeticao').innerText = repeticao;
+
+        }
+
+    </script>
+</body>
+
+</html>

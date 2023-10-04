@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 7</title>
+</head>
+
+<body>
+    <main>
+        <label for="numeros">Insira n numeros: </label>
+        <input type="text" name="nmNumero" id="idNumero">
+        <input type="button" value="enviar" onclick="getNumero()"><br><br>
+        <output id="idSaida"></output>
+        <output id="idMultiplosde10"></output>
+    </main>
+
+    <script>
+        let vetor = [];
+
+        function getNumero() {
+            let output = ' ';
+            let numero = Number(document.getElementById('idNumero').value);
+            vetor.push(numero);
+
+            for (let i = 0; i < vetor.length; i++) {
+                if ((vetor[i] % 10) == 0) {
+                    output += '\n\n' + 'Multiplo de 10 na posição: [' + i + '] .'
+                }
+            }
+            console.log(vetor);
+            document.getElementById('idSaida').innerText = vetor;
+            document.getElementById('idMultiplosde10').innerText = output;
+        }
+
+    </script>
+</body>
+
+</html>

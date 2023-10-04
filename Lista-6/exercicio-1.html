@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+
+<body>
+    <output id="idSaida"></output>
+
+    <script>
+
+        /*
+        let vetor = [5];
+        let valores = 0;
+
+        for (let i = 0; i < 9; i++) {
+            vetor[i+1] = vetor[i]+5
+            
+        }*/
+
+        let vetor = [];
+        let valores = 0
+
+        for (let i = 0; i < 10; i++) {
+            valores +=5;
+            vetor[i] = valores;
+
+        }
+
+        document.getElementById('idSaida').innerText = vetor;
+    </script>
+</body>
+
+</html>
