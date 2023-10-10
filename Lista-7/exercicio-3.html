@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="nome">Digite nome: </label>
+            <input type="text" name="nmNome" id="idNome"><br><br>
+
+            <div id="divSexo">
+                <label for="feminino">Feminino</label>
+                <input type="radio" name="nmSexo" id="idFem" value="feminino" checked>
+                <label for="masculino">Masculino</label>
+                <input type="radio" name="nmSexo" id="idMas" value="masculino"><br><br>
+            </div>
+
+            <label for="idade">Digite Salario: </label>
+            <input type="number" name="nmSalario" id="idSalario" step="0.01" min="0"><br><br>
+            <input type="button" value="Enviar" onclick="getValue()"><br><br>
+        </form>
+        <output id="idSaida"></output>
+    </main>
+
+    <script>
+
+        let arrayNome = [];
+        let arraySexo = [];
+        let arraySalario = [];
+
+        function getValue() {
+
+            let nome = document.getElementById('idNome');
+            let sexo = document.querySelector('input[name=nmSexo]:checked');
+            let salario = document.getElementById('idSalario');
+
+            arrayNome.push(nome.value);
+            arraySexo.push(sexo.value);
+            arraySalario.push(Number(salario.value));
+
+            /*Validando entradas para nao estourar array*/
+            if ((arrayNome.length > 4)) {
+                arrayNome.length = 5;
+                arraySexo.length = 5;
+                arraySalario.length = 5;
+
+                nome.disabled = true;
+                divSexo = document.getElementById('divSexo').hidden = true;
+                salario.disabled = true;
+            }
+
+            let output = '';
+            for (let i = 0; i < arraySexo.length; i++) {
+                if ((arraySexo[i] == 'feminino') && (arraySalario[i] > 5000)) {
+                    output += 'Nome da Funcionaria: ' + arrayNome[i] + '\n Salario: ' + arraySalario[i].toFixed(2);
+                }
+            }
+
+            document.getElementById('idSaida').innerText = output;
+        }
+
+
+    </script>
+</body>
+
+</html>

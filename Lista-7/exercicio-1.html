@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="nota">Digite a nota do aluno <output id="idIndexAluno">1</output></label>
+            <input type="number" name="nota" id="idNota" step="0.01">
+            <input type="button" value="Enviar" onclick="getValue()">
+        </form>
+        <output id="idMedia"></output>
+        <output id="idMaiorNota"></output>
+    </main>
+
+    <script>
+        let arrayNotas = [];
+
+        function getValue() {
+
+            let notas = Number(document.getElementById('idNota').value);
+            let soma = 0;
+            let media = 10;
+            let maior = 0;
+            let acimaMedia = 0;
+            
+            arrayNotas.push(notas);
+
+            for (let i = 0; i < arrayNotas.length; i++) {
+                soma += arrayNotas[i];
+                media = soma / arrayNotas.length;
+
+                if (arrayNotas[i] > maior) {
+                    maior = arrayNotas[i]
+                    document.getElementById('idMaiorNota').innerText = "\nA maior nota é do aluno [" + i + ']: ' + maior.toFixed(2);
+                }
+
+            }
+
+            for (let i = 0; i < arrayNotas.length; i++) {
+                if (arrayNotas[i] > media) {
+                    acimaMedia++;
+                    document.getElementById('idMedia').innerText = "Média da Turma: " + media + '. ' + acimaMedia + ' alunos, estão acima da média.';
+                }
+
+            }
+
+            document.getElementById('idIndexAluno').innerText = arrayNotas.length + 1;
+
+        }
+
+
+    </script>
+</body>
+
+</html>

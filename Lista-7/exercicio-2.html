@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="nome">Digite nome: </label>
+            <input type="text" name="nmNome" id="idNome" required><br>
+            <label for="idade">Digite Idade: </label>
+            <input type="number" name="nmIdade" id="idIdade"><br><br>
+            <input type="button" id="idBtn" value="Enviar" onclick="getValue()"><br><br>
+        </form>
+        <output id="idSaida"></output>
+    </main>
+</body>
+
+<script>
+
+    let arrayNome = [];
+    let arrayIdade = [];
+    function getValue() {
+
+        let nome = document.getElementById('idNome');
+        let idade = document.getElementById('idIdade');
+        let output = ''
+
+        arrayNome.push(nome.value);
+        arrayIdade.push(idade.value);
+
+        /* Validando para o array nao estourar o limite*/
+        if ((arrayNome.length > 8) || (arrayIdade.length > 8)) {
+            arrayNome.length = 9;
+            arrayIdade.length = 9;
+            nome.disabled = true;
+            idade.disabled = true;
+            btn = document.getElementById('idBtn').hidden = true;
+        }
+
+        for (let i = 0; i < arrayIdade.length; i++) {
+            if (arrayIdade[i] < 18) {
+                output += '\n Nome: ' + arrayNome[i] + ' \nIdade: ' + arrayIdade[i];
+            }
+        }
+        document.getElementById('idSaida').innerText = output;
+        console.log(arrayNome, arrayIdade)
+
+    }
+
+</script>
+
+</html>

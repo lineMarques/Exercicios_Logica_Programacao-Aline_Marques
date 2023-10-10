@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" cntent="width=device-width, initial-scale=1.0">
+
+    <title>Exercicio 6</title>
+</head>
+
+<body>
+    <main>
+
+        <h1>O que deseja fazer? </h1>
+        <select name="nmOpcao" id="idOpcao">
+            <option value="cadastro">Cadastrar Alunos</option>
+            <option value="notas">Cadastrar Notas</option>
+            <option value="consulta">Consultar Aluno</option>
+        </select>
+        <input type="button" value="Ok" onclick="getOpcao()">
+
+        <div id="div-cadastro" hidden>
+            <h1>Cadastro dos alunos</h1><br>
+            <form action="" method="post">
+
+                <label for="nome">Nome: </label>
+                <input type="text" name="nmNome" id="idNome"><br>
+
+                <label for="endereco">Endereço: </label>
+                <input type="text" name="nmEndereco" id="idEndereco"><br>
+
+                <label for="mae">Nome da mãe: </label>
+                <input type="text" name="nmMae" id="idMae"><br>
+
+                <label for="pai">Nome do pai: </label>
+                <input type="text" name="nmPai" id="idPai"><br>
+
+                <label for="tel">Telefone: </label>
+                <input type="tel" name="nmTel" id="idTel"><br>
+
+                <input type="button" value="Enviar" onclick="cadastroAlunos()"><br>
+
+            </form>
+            <output id="idSaidaCadastro"></output>
+        </div>
+
+        <div id="div-notas" hidden>
+            <h1>Notas</h1><br>
+            <form action="" method="post">
+
+                <label for="nota1">Insita nota 1<output id="idIndexNota"></output>: </label>
+                <input type="text" name="nmNota1" id="idNota1"><br>
+
+                <label for="nota1">Insita nota 2<output id="idIndexNota"></output>: </label>
+                <input type="text" name="nmNota2" id="idNota2"><br>
+
+                <label for="nota1">Insita nota 3<output id="idIndexNota"></output>: </label>
+                <input type="text" name="nmNota3" id="idNota3"><br>
+
+                <label for="nota1">Insita nota 4<output id="idIndexNota"></output>: </label>
+                <input type="text" name="nmNota4" id="idNota4"><br>
+
+                <input type="button" value="Enviar" onclick="getNotas()"><br>
+
+            </form>
+            <output id="idSaidaNotas"></output>
+        </div>
+
+        <div id="div-consulta" hidden>
+            <h1>Consultar Aluno</h1>
+            <label for="nomeConsulta">Digite o Nome do Aluno: </label>
+            <input type="text" name="nmNomeConsulta" id="idNomeConsulta"><br>
+            <input type="button" value="Consultar Aluno" onclick="consultaAluno()"><br><br>
+
+            <hr>
+            <output id="idSaidaConsulta"></output>
+        </div>
+
+    </main>
+
+
+</body>
+<script>
+    let arrayNome = [];
+    let arrayMae = [];
+    let arrayPai = [];
+    let arrayEndereco = [];
+    let arrayTel = [];
+
+    let arrayNota1 = [];
+    let arrayNota2 = [];
+    let arrayNota3 = [];
+    let arrayNota4 = [];
+
+    let output = '';
+
+    function getOpcao() {
+
+        let selectOpcao = document.getElementById('idOpcao').value;
+        let divCadastro = document.getElementById('div-cadastro');
+        let divNotas = document.getElementById('div-notas');
+        let divConsulta = document.getElementById('div-consulta');
+
+        if (selectOpcao == 'cadastro') {
+            divCadastro.hidden = false;
+            divNotas.hidden = true;
+            divConsulta.hidden = true;
+        } else if (selectOpcao == 'notas') {
+            divCadastro.hidden = true;
+            divNotas.hidden = false;
+            divConsulta.hidden = true;
+        } else {
+            divCadastro.hidden = true;
+            divNotas.hidden = true;
+            divConsulta.hidden = false;
+        }
+    }
+
+    function cadastroAlunos() {
+
+        let nome = document.getElementById('idNome');
+        let mae = document.getElementById('idMae');
+        let pai = document.getElementById('idPai');
+        let endereco = document.getElementById('idEndereco');
+        let tel = document.getElementById('idTel');
+
+        arrayNome.push(nome.value);
+        arrayMae.push(mae.value);
+        arrayPai.push(pai.value);
+        arrayEndereco.push(endereco.value);
+        arrayTel.push(tel.value);
+
+        document.getElementById('idSaidaCadastro').innerText = 'Aluno Cadastrado';
+
+        nome.value = '';
+        mae.value = '';
+        pai.value = '';
+        endereco.value = '';
+        tel.value = '';
+
+        console.log(arrayNome);
+
+    }
+
+    function getNotas() {
+
+        let nota1 = document.getElementById('idNota1');
+        let nota2 = document.getElementById('idNota2');
+        let nota3 = document.getElementById('idNota3');
+        let nota4 = document.getElementById('idNota4');
+
+        arrayNota1.push(nota1.value);
+        arrayNota2.push(nota2.value);
+        arrayNota3.push(nota3.value);
+        arrayNota4.push(nota4.value);
+
+        nota1.value = '';
+        nota2.value = '';
+        nota3.value = '';
+        nota4.value = '';
+
+        document.getElementById('idSaidaNotas').innerText = 'Notas Cadastradas';
+
+    }
+
+    function consultaAluno() {
+
+        let nomeConsulta = document.getElementById('idNomeConsulta').value;
+
+        for (let i = 0; i < arrayNome.length; i++) {
+            if (nomeConsulta == arrayNome[i]) {
+                output =
+                    'Nome:' + arrayNome + '\n' +
+                    'Mãe: ' + arrayMae + '\n' +
+                    'Pai: ' + arrayPai + '\n' +
+                    'Endereco: ' + arrayEndereco + '\n' +
+                    'Telefone: ' + arrayTel + '\n\n' +
+                    '_______Notas do Aluno__________' + '\n\n' +
+                    'Nota1: ' + arrayNota1 + '\n' +
+                    'Nota2: ' + arrayNota2 + '\n' +
+                    'Nota3: ' + arrayNota3 + '\n' +
+                    'Nota4: ' + arrayNota4 + '\n';
+
+            }
+        }
+
+        document.getElementById('idSaidaConsulta').innerText = output;
+
+    }
+</script>
+
+</html>

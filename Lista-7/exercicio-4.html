@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+
+<body>
+    <main>
+        <form action="" method="post">
+            <label for="dia">Digite o dia: </label>
+            <input type="number" name="nmDia" id="idDia" min="1" max="30">
+            <input type="button" value="Ver temperatura" onclick="getDay()">
+        </form>
+        <output id="idSaida"></output>
+    </main>
+</body>
+
+<script>
+
+    let temperaturaMes = [''];
+    let temperaturaMedia = 0;
+
+    for (let i = 1; i <= 30; i++) {
+        temperaturaMes.push(parseFloat(Math.random() * 40));
+        temperaturaMedia += temperaturaMes[i] / 30;
+    }
+
+    function getDay() {
+
+        let dia = document.getElementById('idDia').value;
+
+        for (let i = 0; i < temperaturaMes.length; i++) {
+            if (dia == i) {
+                if (temperaturaMedia < temperaturaMes[i]) {
+                    document.getElementById('idSaida').innerText = 'No dia ' + dia + ' a temperatura estava ' + temperaturaMes[i].toFixed(1) + ' acima da média ' + temperaturaMedia.toFixed(1);
+
+                } else if (temperaturaMedia == temperaturaMes[i]) {
+                    document.getElementById('idSaida').innerText = 'No dia ' + dia + ' a temperatura estava ' + temperaturaMes[i].toFixed(1) + ' na média ' + temperaturaMedia.toFixed(1);
+                    
+                } else {
+                    document.getElementById('idSaida').innerText = 'No dia ' + dia + ' a temperatura estava ' + temperaturaMes[i].toFixed(1) + ' abaixo da média ' + temperaturaMedia.toFixed(1);
+                }
+            }
+        }
+    }
+
+</script>
+
+</html>

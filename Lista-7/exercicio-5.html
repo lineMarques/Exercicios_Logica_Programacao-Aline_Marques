@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio 5</title>
+</head>
+
+<body>
+  <main>
+    <form action="" method="post">
+      <label for="dia">Digite 10 numeros aleatórios: </label><output id="idIndexNumero"></output>
+      <input type="number" name="nmNumero" id="idNumero">
+
+      <input type="button" value="Enviar numeros" onclick="getValue()"><br>
+
+      <output id="idSaidaArrayOriginal"></output>
+
+      <hr>
+      <label for="ordenacao">Escolha a ordenação dos numeros: </label><br><br>
+
+      <label for="ordenacao">Crescente</label>
+      <input type="radio" name="ordenacao" id="idCrescente" value="crescente" checked>
+
+      <label for="ordenacao">Decrescente</label>
+      <input type="radio" name="ordenacao" id="idDecrescente" value="decrescente"><br><br>
+
+      <input type="button" value="Ordenar" onclick="bubbleSort()"><br><br>
+
+      <output id="idSaidaArrayOrdenado"></output>
+
+
+    </form>
+    <output id="idSaida"></output>
+  </main>
+  <script>
+
+    let arrayNumero = [];
+  
+    function getValue() {
+
+      let numero = document.getElementById('idNumero');     
+
+      arrayNumero.push(Number(numero.value));
+
+      /* Validando o tamanho do array*/
+
+      if ((arrayNumero.length > 9)) {
+        arrayNumero.length = 10;
+
+        numero.disabled = true;
+      }
+
+      for (let i = 0; i < arrayNumero.length; i++) {
+        document.getElementById('idIndexNumero').innerText = " [" + (i + 1) + "]";
+      }
+
+      document.getElementById('idSaidaArrayOriginal').innerText = arrayNumero;
+
+    }
+
+    function bubbleSort() {
+
+      let ordenacao = document.querySelector('input[name=ordenacao]:checked').value;
+      let arrayOrdenado = []
+     
+      if (ordenacao == 'crescente') {
+
+        for (let i = 0; i < arrayNumero.length; i++) {
+
+          for (let j = 0; j < arrayNumero.length; j++) {
+
+            if (arrayNumero[j] > arrayNumero[j + 1]) {
+              let aux = arrayNumero[j];
+              arrayNumero[j] = arrayNumero[j + 1];
+              arrayNumero[j + 1] = aux;
+            }
+
+          }
+
+        }
+
+      } else {
+
+        for (let i = 0; i < arrayNumero.length; i++) {
+
+          for (let j = 0; j < arrayNumero.length; j++) {
+
+            if (arrayNumero[j] < arrayNumero[j + 1]) {
+              let aux = arrayNumero[j];
+              arrayNumero[j] = arrayNumero[j + 1];
+              arrayNumero[j + 1] = aux;
+            }
+
+          }
+
+        }
+
+      }
+
+      arrayOrdenado = arrayNumero;
+    
+      document.getElementById('idSaidaArrayOrdenado').innerText = arrayOrdenado
+    }
+
+  </script>
+</body>
+
+</html>
