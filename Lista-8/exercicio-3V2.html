@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exercicio 5</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <main class="container mt-5">
+        <form>
+
+            <div class="form-group mt-3">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="idNome" placeholder="Digite o nome">
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="idade">Salario</label>
+                <input type="number" class="form-control" id="idSalario" placeholder="Digite a Idade">
+            </div>
+
+            <div class="form-check mt-3">
+                <input class="form-check-input" type="radio" name="nmSexo" id="idFeminino" value="feminino" checked>
+                <label class="form-check-label" for="sexo">
+                    Feminino
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="nmSexo" id="idMasculino" value="masculino">
+                <label class="form-check-label" for="sexo">
+                    Masculino
+                </label>
+            </div>
+
+            <button type="button" class="btn btn-dark mt-3" onclick="getValue()">Enviar</button>
+
+        </form>
+        <output id="idSaida"></output>
+    </main>
+
+    <script>
+
+        let funcionarios = [];
+        let output = '';
+
+        function getValue() {
+
+            let funcionario = {
+                nome: document.getElementById('idNome').value,
+                salario: Number(document.getElementById('idSalario').value),
+                sexo: document.querySelector('input[name=nmSexo]:checked').value,
+            }
+           
+            funcionarios.push(funcionario);
+
+            let funcionarias = funcionarios.filter(function (value) {
+                return value.sexo == 'feminino';
+            });
+
+            funcionarias.forEach(function (funcionaria) {
+                output +='\n' + 'Nome da Funcionaria: ' + funcionaria.nome + '\n Salario: ' + funcionaria.salario.toFixed(2);
+            });
+
+            document.getElementById('idSaida').innerText = output;
+            output = '';
+        }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
